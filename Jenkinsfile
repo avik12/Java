@@ -2,23 +2,18 @@ pipeline{
   agent any
   stages{
     stage("Test"){
-      steps {
+      steps{
           echo "Hello  Testing"
         }
       }
-    }
-  post {
-    always {
-      echo 'ALways'
+    stage("Test"){
+      when {
+        expression {
+            BRANCH_NAME == "master"
+          }
+        }
+      steps{
+        echo "Hello Master"
       }
-    success {
-      echo 'Success'
-      }
-    failure {
-      echo 'Failure'
-    }
-    unstable {
-      echo 'Unstable'
     }
   }
-}
