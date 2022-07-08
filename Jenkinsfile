@@ -2,12 +2,13 @@ pipeline{
   agent any
   environment {
     bnch = "${BRANCH_NAME}"
+    id = "${JOB_BASE_NAME}"
   }
   stages{
     stage("Test"){
       steps{
           echo "Hello  Testing"
-        echo "${bnch}"
+        echo "${id}"
         }
       }
     stage("Branch Wise Test"){
