@@ -6,7 +6,7 @@ pipeline{
           echo "Hello  Testing"
         }
       }
-    stage("Test"){
+    stage("Branch Wise Test"){
       when {
         expression {
             BRANCH_NAME == "master"
