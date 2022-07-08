@@ -1,6 +1,6 @@
 pipeline{
   agent any
-  ENVIORMENT {
+  environment {
     bnch = "${BRANCH_NAME}"
   }
   stages{
