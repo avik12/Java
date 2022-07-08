@@ -11,7 +11,7 @@ pipeline{
     }
     stage("Time Out"){
       steps{
-        timeout(time:10 unit:'SECONDS'){
+        timeout(time:10, unit:'SECONDS'){
           sh 'chmod 755 health-check.sh'   
           sh './health-check.sh'
         }
