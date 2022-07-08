@@ -1,9 +1,11 @@
 pipeline{
-  agent { docker{ image 'maven:3.8.4-openjdk-11-slim'}}
+  agent any
   stages{
     stage("Check Version"){
       steps{
-          sh 'mvn --version'
+        retry(3){
+        sh './health-check.sh'
+        }
       }
     }
   }
