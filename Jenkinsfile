@@ -1,5 +1,8 @@
 pipeline{
   agent any
+  ENVIORMENT {
+    bnch = "${BRANCH_NAME}"
+  }
   stages{
     stage("Test"){
       steps{
@@ -9,7 +12,7 @@ pipeline{
     stage("Branch Wise Test"){
       when {
         expression {
-          "${BRANCH_NAME}" == "master"
+         "$bnch"  == "master"
           }
         }
       steps{
