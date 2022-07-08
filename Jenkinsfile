@@ -1,5 +1,5 @@
 pipeline{
-  agent { docker{ image 'openjdk:11-jdk-slim'}}
+  agent { docker{ image 'maven:3.8.4-openjdk-11-slim'}}
   stages{
     stage("Check Version"){
       steps{
