@@ -7,12 +7,13 @@ pipeline{
     stage("Test"){
       steps{
           echo "Hello  Testing"
+        echo "${bnch}"
         }
       }
     stage("Branch Wise Test"){
       when {
         expression {
-         "$bnch"  == "master"
+          "${bnch}"  == "master"
           }
         }
       steps{
