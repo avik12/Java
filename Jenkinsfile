@@ -4,11 +4,19 @@ pipeline{
     bnch = "${BRANCH_NAME}"
     id = "${JOB_BASE_NAME}"
   }
+  parameters {
+  booleanParam description: 'OS', name: 'Env'
+  choice choices: ['UAT', 'SIT', 'DEV'], description: 'Build Environment ', name: 'Env'
+  string defaultValue: 'Demo', description: 'NameOfJob', name: 'JobName'
+}
   stages{
     stage("Test"){
       steps{
           echo "Hello  Testing"
-        echo "${id}"
+          echo "${id}"
+        if (param.Env == 'UAT'){
+            echo param.Env
+          }
         }
       }
     stage("Branch Wise Test"){
