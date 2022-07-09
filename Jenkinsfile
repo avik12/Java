@@ -13,12 +13,16 @@ pipeline{
     stage("Test"){
       steps{
           echo "Hello  Testing"
-          echo "${id}"
-        if (param.Env == 'UAT'){
-            echo param.Env
-          }
+          echo "${id}
         }
       }
+    stage("Test1"){
+      steps{
+         if (param.Env == 'UAT'){
+            echo param.Env
+         }
+      }
+    }
     stage("Branch Wise Test"){
       when {
         expression {
