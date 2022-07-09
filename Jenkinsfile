@@ -18,9 +18,14 @@ pipeline{
       }
     stage("Test1"){
       steps{
+        script{
          if (param.Env == 'UAT'){
             echo param.Env
          }
+          else {
+            echo "Not If "
+          }
+        }
       }
     }
     stage("Branch Wise Test"){
