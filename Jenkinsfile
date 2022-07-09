@@ -5,9 +5,9 @@ pipeline{
     id = "${JOB_BASE_NAME}"
   }
   parameters {
-  booleanParam description: 'OS', name: 'OsBuild'
-  choice choices: ['UAT', 'SIT', 'DEV'], description: 'Build Environment ', name: 'Env'
-  string defaultValue: 'Demo', description: 'NameOfJob', name: 'JobName'
+  booleanParam (description: 'OS', name: 'OsBuild')
+  choice (choices: ['UAT', 'SIT', 'DEV'], description: 'Build Environment ', name: 'Env')
+  string (defaultValue: 'Demo', description: 'NameOfJob', name: 'JobName')
 }
   stages{
     stage("Test"){
@@ -19,8 +19,8 @@ pipeline{
     stage("Test1"){
       steps{
         script{
-         if (param.Env == 'UAT'){
-            echo param.Env
+         if (params.Env == 'UAT'){
+            echo params.Env
          }
           else {
             echo "Not If "
