@@ -17,9 +17,11 @@ pipeline{
         }
       }
     stage("Test1"){
+      steps{
          if (param.Env == 'UAT'){
             echo param.Env
          }
+      }
     }
     stage("Branch Wise Test"){
       when {
