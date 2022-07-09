@@ -5,7 +5,7 @@ pipeline{
     id = "${JOB_BASE_NAME}"
   }
   parameters {
-  booleanParam description: 'OS', name: 'Env'
+  booleanParam description: 'OS', name: 'OsBuild'
   choice choices: ['UAT', 'SIT', 'DEV'], description: 'Build Environment ', name: 'Env'
   string defaultValue: 'Demo', description: 'NameOfJob', name: 'JobName'
 }
